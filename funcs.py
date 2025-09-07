@@ -7,14 +7,15 @@ def show_menu():
 4.To assign a completed task
 5. Clear
 6. Delete Task
-6.Exit\n''')
+7.Exit\n''')
 
 
 def show_tasks():
     a = open('tasks.txt', 'r')
-    for i in a:
-        print(i, end='')
-    a.close()
+    if a:
+        for i in a:
+            print(i, end='')
+        a.close()
     
     
 def show_finish_task():
@@ -60,8 +61,32 @@ def del_task():
                 break
             with open('tasks.txt', 'w') as file:
                 file.writelines(tasks)
+                break
             
         except ValueError:
             break
         
-clear()
+
+def complete_task():
+    while True:
+        with open('tasks.txt', 'r') as file:
+            tasks = file.readlines()
+            
+        #Перебираем циклом строки
+        for i, v in enumerate(tasks, 1):
+            print(f'{i}. {v}')
+        
+        try:
+            user = int(input('Which task have you complete ---> '))
+            if 1 <= user <= len(tasks):
+                tasks[user - 1] = tasks[user - 1].replace('[]','[x]')
+            else:
+                print("There's no such task!")
+                break
+            with open('tasks.txt', 'w') as file:
+                file.writelines(tasks)
+                break
+            
+        except ValueError:
+            break
+        
