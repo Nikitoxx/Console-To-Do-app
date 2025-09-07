@@ -11,10 +11,11 @@ menu_funcs = {'1': f.show_tasks,
 while True:
     f.show_menu()
     choise = input('Select menu item: ')
-    if choise not in menu_funcs:
-        print('There\'s no such option')
-    elif choise == '7':
+    if choise == '7':
         break
+    elif choise not in menu_funcs:
+        print('There\'s no such option')
+    
     else:
         menu_funcs.get(choise)()
     

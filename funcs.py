@@ -14,7 +14,7 @@ def show_tasks():
     a = open('tasks.txt', 'r')
     if a:
         for i in a:
-            print(i, end='')
+            print(i)
         a.close()
     
     
