@@ -23,5 +23,16 @@ def show_finish_task():
             print(b)
     a.close()
     
-show_finish_task()
 
+def add_task():
+    while True:
+        a = input('Write your task: ')
+        with open('tasks.txt', 'a') as file:
+            file.write(f'{a}\n')
+        b = input('Do you want to add one more? 1.Yes 2.No')
+        if b.lower() == 'yes':
+            continue
+        else:
+            break
+
+add_task()
