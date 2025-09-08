@@ -1,4 +1,4 @@
-import funcs as f
+import Modules.funcs as f
 
 menu_funcs = {'1': f.show_tasks,
               '2': f.show_finish_task,
